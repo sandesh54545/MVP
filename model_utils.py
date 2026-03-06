@@ -23,10 +23,10 @@ def analyze_dataset(df):
         anomaly_count = np.sum(preds == -1)
         anomaly_percent = (anomaly_count/total_rows)*100
 #Quality score
-    quality_score = 100-(missing_percent*1.2)\
-          - (duplicate_percent*0.8) \
-          - (anomaly_percent*1.0)
-    quality_score = max(0, min(100, round(quality_score,2)))
+    quality_score = 100-(missing_percent*0.8)\
+          - (duplicate_percent*0.7) \
+          - (anomaly_percent*0.7)
+    quality_score = max(0,round(quality_score,2))
 #Grade
     if quality_score >= 90:
         grade = "A"
@@ -69,4 +69,5 @@ def analyze_dataset(df):
         "column_analysis": column_scores,
         "suggestions": suggestions
     }    
+
 
